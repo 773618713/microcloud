@@ -31,9 +31,12 @@ spring:
 #       - USER
      
 eureka:
+  server:
+    enable-self-preservation: true # 设置为false表示关闭保护模式
+    eviction-interval-timer-in-ms: 60000 # 设置清理的间隔时间，而后这个时间使用的是毫秒单位（默认是60秒）
   client: # 客户端进行Eureka注册的配置
     service-url:
-      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka,http://edmin:mldnjava@eureka-7002.com:7002/eureka,http://edmin:mldnjava@eureka-7003.com:7003/eureka
+      defaultZone: http://eureka-7001.com:7001/eureka
   instance:
     lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
     lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）

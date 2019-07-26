@@ -20,6 +20,7 @@ public class DeptRest {
     
     @Resource
     private DiscoveryClient client ;    // 进行Eureka的发现服务
+    
     @RequestMapping("/dept/discover")
     public Object discover() {    // 直接返回发现服务信息
         return this.client ;
